@@ -1,0 +1,29 @@
+{
+  "name": "chachat",
+  "version": "1.0.0",
+  "description": "WebChat",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "author": "AndresRodart",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^4.1.4",
+    "electron-builder": "^20.39.0"
+  },
+  "dependencies": {
+    "bulma": "^0.7.4"
+  },
+  "build": {
+    "appId": "com.electron.chaChat",
+    "directories": {
+      "buildResources": "./images"
+    },
+    "mac": {
+      "category": "chat.app"
+    }
+  }
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>ChaChat!</title>
+		<script defer src="./javascript/all.min.js"></script> <!--load all styles -->  
+		<link rel="stylesheet" href="./css/style.css">
+	</head>
+	<body>
+		<progress id='sending_file' class="progress is-danger start-hidden" max="100">15%</progress>
+		<section class="start-hidden full-h" id='addGroup-builder'>
+			<div class="container"> 
+				<div class="columns is-multiline">
+					<div class="column is-full">
+						<input class="input is-rounded" type="text" placeholder='Group Name'>
+					</div> 
+					<div class="column is-full">
+						<input class="input is-rounded" type="text" placeholder='Add; Users; BySemiColon; Separated; Names;'>
+					</div>
+					<div class="column" id='addGroup-builder-button'> 
+						<button class="button main-color" id='addGroup' onclick="addGroup()">AddGroup</button>
+						<input id="file-input" type="file" name="name" style="display: none;" />
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="hero is-fullheight" id='welcome'>
+			<div class="hero-body"> 
+				<div class="container" id="ingresar"> 
+					<div class="columns is-vcentered">
+						<div class="column has-text-centered">
+							<h1 class="title">
+								Welcome To ChaChat
+							</h1>
+							<button class="button main-color" onclick='ingresar()'>Ingresar</button>
+						</div>
+					</div>
+				</div>
+				
+				<div class="container start-hidden" id='name'> 
+					<div class="columns">
+						<div class="column has-text-centered start-hidden error" id="nameInUse">
+								Nombre ya en uso :C
+						</div>
+						<div class="column has-text-centered start-hidden error" id="nameBlank">
+								Debes mandar un nombre :C
+						</div>
+					</div>
+					<div class="columns">
+						<div class="column has-text-centered">
+							<h2 class="title">
+								What´s your name?
+							</h2>
+						</div>
+					</div>
+					<div class="columns">
+						<div class="column is-one-quarter"></div>
+						<div class="column"> 
+							<input class="input is-rounded" type="text" placeholder="Type your name or nickname" id='usrName'>
+						</div>
+						<div class="column is-1"> 
+							<button class="button main-color" onclick='checkName()'>Ok</button>
+						</div>
+						<div class="column is-one-quarter"></div>
+					</div>
+				</div>
+			</div>
+			
+		</section>
+		<section class="start-hidden full-h" id='chat-area'>
+			<div class="columns">
+				<div class="column is-one-fifth">
+					<div class='radiousBoxL vh80 sec-color no-Padding' id='users'>
+						<a id = 'main-chat'>
+							<div class='chat-selector selected'>
+								<img src="./images/network.svg" alt="image">
+								<p>chaChat</p>
+							</div>
+						</a>
+						<div class="column" id='addGroup'> 
+							<button class="button main-color" id='addGroup' onclick="addGroupBuilder()">AddGroup</button>
+							<input id="file-input" type="file" name="name" style="display: none;" />
+						</div>
+					</div>
+				</div>
+				<div class="column">
+					<div class="vh80 radiousBoxR">
+						<div class='messagess-wrapper' id = 'messagess-wrapper'>
+							<div class = 'mensagess-area' id='messagess-area'>
+								
+							</div>
+						</div>
+						<div class='writeArea'>
+							<div class="columns">
+								<div class="column is-10"> 
+									<input class="input is-rounded" type="text" placeholder='write your message' id='usrMessage'>
+								</div>
+								<div class="column"> 
+									<button class="button main-color" onclick='sendMessage()'>Send</button>
+								</div>
+								<div class="column"> 
+									<button class="button main-color" id='add' onclick="document.getElementById('file-input').click();">Add</button>
+									<input id="file-input" type="file" name="name" style="display: none;" />
+								</div>
+								<div class="column"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<script defer src="./javascript/operations.js"></script> <!--load all styles -->  
+		<script defer src="./javascript/udpSocket.js"></script> <!--load all styles -->  
+		<script defer src="./javascript/sendFileManager.js"></script> <!--load all styles -->  
+	</body>
+	</html>
