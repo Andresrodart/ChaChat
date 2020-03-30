@@ -12,7 +12,6 @@ users = {}
 # Create the socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-
 # Bind to the server address
 sock.bind(server_address)
 
@@ -23,7 +22,8 @@ mreq = struct.pack('4sL', group, socket.INADDR_ANY)
 sock.setsockopt(
 	socket.IPPROTO_IP,
 	socket.IP_ADD_MEMBERSHIP,
-	mreq)
+	mreq
+)
 
 if not os.path.exists(ServerDirectory):
     os.mkdir(ServerDirectory)

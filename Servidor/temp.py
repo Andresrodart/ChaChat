@@ -1,22 +1,30 @@
 import socket
 import sys
 
-# Create a UDP socket
-sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+# Create a TCP/IP socket
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-server_address = ('127.0.0.1', 10002)
-message = b'This is the message.  It will be repeated.'
+# Connect the socket to the port where the server is listening
+server_address = ('localhost', 5000)
+print('connecting to {} port {}'.format(*server_address))
+sock.connect(server_address)
 
 try:
+	message = 'This is the message.  It will be repeated.'
+	while message != 'exit':
+		# Send data
+		print('sending {!r}'.format(str.encode(message)))
+		sock.sendall(str.encode(message))
+		message = input()
 
-    # Send data
-    print('sending {!r}'.format(message))
-    sent = sock.sendto(message, server_address)
+    # Look for the response
+    # amount_received = 0
+    # amount_expected = len(message)
 
-    # Receive response
-    print('waiting to receive')
-    data, server = sock.recvfrom(4096)
-    print('received {!r}'.format(data))
+    # while amount_received < amount_expected:
+    #     data = sock.recv(16)
+    #     amount_received += len(data)
+    #     print('received {!r}'.format(data))
 
 finally:
     print('closing socket')
