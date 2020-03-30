@@ -8,8 +8,9 @@
 		<link rel="stylesheet" href="./css/style.css">
 	</head>
 	<body>
-		<progress id='sending_file' class="progress is-danger start-hidden" max="100">15%</progress>
-		<section class="start-hidden full-h" id='addGroup-builder'>
+		<progress id='sending_file' class="progress is-danger is-hidden" max="100">15%</progress>
+		
+		<section class="is-hidden full-h" id='addGroup-builder'>
 			<div class="container"> 
 				<div class="columns is-multiline">
 					<div class="column is-full">
@@ -25,6 +26,7 @@
 				</div>
 			</div>
 		</section>
+		
 		<section class="hero is-fullheight" id='welcome'>
 			<div class="hero-body"> 
 				<div class="container" id="ingresar"> 
@@ -38,12 +40,12 @@
 					</div>
 				</div>
 				
-				<div class="container start-hidden" id='name'> 
+				<div class="container is-hidden" id='name'> 
 					<div class="columns">
-						<div class="column has-text-centered start-hidden error" id="nameInUse">
+						<div class="column has-text-centered is-hidden error" id="nameInUse">
 								Nombre ya en uso :C
 						</div>
-						<div class="column has-text-centered start-hidden error" id="nameBlank">
+						<div class="column has-text-centered is-hidden error" id="nameBlank">
 								Debes mandar un nombre :C
 						</div>
 					</div>
@@ -68,26 +70,26 @@
 			</div>
 			
 		</section>
-		<section class="start-hidden full-h" id='chat-area'>
+		<section class="is-hidden full-h" id='chat-area'>
 			<div class="columns">
 				<div class="column is-one-fifth">
-					<div class='radiousBoxL vh80 sec-color no-Padding' id='users'>
+					<div class='radiusBoxL vh80 sec-color no-Padding' id='users'>
 						<a id = 'main-chat'>
 							<div class='chat-selector selected'>
 								<img src="./images/network.svg" alt="image">
 								<p>chaChat</p>
 							</div>
 						</a>
-						<div class="column" id='addGroup'> 
-							<button class="button main-color" id='addGroup' onclick="addGroupBuilder()">AddGroup</button>
-							<input id="file-input" type="file" name="name" style="display: none;" />
-						</div>
+					</div>
+					<div class="column has-text-centered" id='addGroup'> 
+						<button class="button main-color" id='addGroup' onclick="addGroupBuilder()">AddGroup</button>
+						<input id="file-input" type="file" name="name" style="display: none;" />
 					</div>
 				</div>
 				<div class="column">
-					<div class="vh80 radiousBoxR">
-						<div class='messagess-wrapper' id = 'messagess-wrapper'>
-							<div class = 'mensagess-area' id='messagess-area'>
+					<div class="vh80 radiusBoxR">
+						<div class='messages-wrapper' id = 'messages-wrapper'>
+							<div class = 'messages-area' id='messages-area'>
 								
 							</div>
 						</div>

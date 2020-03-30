@@ -1,13 +1,17 @@
-const { remote, ipcRenderer} = require('electron');
+const remote = require('electron').remote;
 const fs = require("fs");
 const FILE_PORT = 10002;
 const FILE_ADDR = "127.0.0.1";
 const file_socket = dgram.createSocket({ type: "udp4", reuseAddr: true });
 const input = document.getElementById('file-input');
 var resivingFile = false;
+var sendifile = false;
 var readStream;
 var fileToDownload = '';
+var file2sendPath = '';
 var writeStream;
+var resivingFile = false;
+
 // file_socket.on("listening", function() {
 // 	const address = file_socket.address();
 // 	console.log(
@@ -54,7 +58,7 @@ file_socket.on('error', (err) => {
 input.onchange = e => { 
 	var file = e.target.files[0];
 	let auxMessage = {
-		'user':usrNAme,
+		'user':usrName,
 		'mesg': path.basename(file.path),
 		'to': chat_area_on,
 		'file':true
@@ -83,7 +87,7 @@ function sendFile(filePath) {
 	readStream.on('end', () => {
 		console.log('There will be no more data.');
 		let auxMessage = {
-			'user':usrNAme,
+			'user':usrName,
 			'mesg': path.basename(filePath),
 			'to': chat_area_on,
 			'file':true
@@ -116,7 +120,7 @@ function downloadFile(fileName){
 				if (err) throw err;
 				writeStream = fs.createWriteStream(fileToDownload);
 				let auxMessage = {
-					'user':usrNAme,
+					'user':usrName,
 					'file': fileToDownload
 				};
 				let message = Buffer.from(`${JSON.stringify(auxMessage)}`);
@@ -127,15 +131,3 @@ function downloadFile(fileName){
 		});
 	}
 }
-
-ipcRenderer.on('app-close', _ => {
-	let auxMessage = {
-		'user':usrNAme,
-		'exit':true
-	};
-	const message = Buffer.from(`${JSON.stringify(auxMessage)}`);
-	socket.send(message, 0, message.length, 10001, MULTICAST_ADDR, function() {
-		console.info(`Sending message "${message}"`);
-		ipcRenderer.send('closed');
-	});
-});

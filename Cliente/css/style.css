@@ -62,15 +62,15 @@ section.full-h {
  	height: 80vh;
 }
 
-.radiousBoxL {
+.radiusBoxL {
 	border-radius: 15px 5px 5px 15px;
 	display: flex;
     flex-flow: column;
 	overflow-y: auto;
 	position: relative;
 }
-.radiousBoxL a { color: inherit; } 
-.radiousBoxL .chat-selector{
+.radiusBoxL a { color: inherit; } 
+.radiusBoxL .chat-selector{
 	height: 12vh;
 	min-height: 40px;
 	max-height: 50px;
@@ -78,15 +78,15 @@ section.full-h {
 	padding: .4rem .4rem;
 }
 
-.radiousBoxL .chat-selector:hover{
+.radiusBoxL .chat-selector:hover{
 	background-color: rgba(0, 0, 0, 0.4)
 }
 
-.radiousBoxL .chat-selector.selected{
+.radiusBoxL .chat-selector.selected{
 	background-color: rgba(0, 0, 0, 0.2)
 }
 
-.radiousBoxL .chat-selector img {
+.radiusBoxL .chat-selector img {
 	float: left;
 	min-height: 30px;
 	max-height: 40px;
@@ -96,19 +96,18 @@ section.full-h {
   	border-radius: 50%;
 }
 
-.radiousBoxL .chat-selector p {
+.radiusBoxL .chat-selector p {
 	font-size: .9rem;
 	font-weight: bold;
 }
 
-.radiousBoxR {
+.radiusBoxR {
 	border-radius: 30px 15px 15px 30px;
 	background-color: rgba(245,245,245, .4);
-	/*Las siguientes lineas es para que funcione lo que va dentro*/
 	display: flex;
     flex-flow: column;
 }
-.radiousBoxR .messagess-wrapper{
+.radiusBoxR .messages-wrapper{
 	flex: 1 1 auto;
 	display: flex;
 	/*Se agregan en reversa de entrada*/
@@ -116,11 +115,11 @@ section.full-h {
 	overflow-y: auto;
 	padding-bottom: 1.5rem;
 }
-.radiousBoxR .messagess-wrapper .mensagess-area{
+.radiusBoxR .messages-wrapper .messages-area{
 	width: 100%;
 }
 
-.mensagess-area > * {
+.messages-area > * {
 	display: inherit;
 }
 
@@ -168,8 +167,4 @@ section.full-h {
 #addGroup-builder > .container > .columns{
 	background-color: lightyellow;
 	padding: 2rem;
-}
-
-.start-hidden{
-	display: none;
 }

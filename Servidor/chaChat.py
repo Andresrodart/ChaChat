@@ -37,7 +37,7 @@ while True:
 		print(str(data_in_json))
 		if 'exit' in data_in_json:
 			print(data_in_json['user'], ' disconected')
-			users.pop(data_in_json['user'], None)
+			users.pop(data_in_json['user'])
 		elif data_in_json['user'] in users:
 			sock.sendto(json.dumps({'res':False, 'sender':data_in_json['user']}).encode(), send_multicast_group)
 		else:
